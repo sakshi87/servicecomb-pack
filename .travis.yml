@@ -39,7 +39,7 @@ install:
 - sudo apt-get update
 - sudo apt-get install openjdk-8-jdk
 - which java
-- find / -iname java-8-openjdk-arm64
+- sudo find / -iname java-8-openjdk-arm64
 - java -version
 - sudo apt-get install -y maven
 script: ./scripts/test.sh
