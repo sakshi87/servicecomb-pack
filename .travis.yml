@@ -36,9 +36,6 @@ git:
   depth: false
   
 install:
-- sudo apt-get update
-- sudo apt-get install openjdk-8-jdk
-- export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64/jre/bin/java
 - java -version
 - sudo apt-get install -y maven
 script: ./scripts/test.sh
