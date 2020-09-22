@@ -42,6 +42,7 @@ install:
 - export PATH=$JAVA_HOME:$PATH;
 - java -version
 - sudo apt-get install -y maven
+- sudo apt-get install -y openssl libssl-dev
 script: ./scripts/test.sh
 after_success:
 - if [ "$TRAVIS_EVENT_TYPE" == "cron" ]; then bash -x scripts/deploy.sh ; fi
