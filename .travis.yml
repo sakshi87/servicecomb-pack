@@ -38,8 +38,7 @@ git:
 install:
 - sudo apt-get update
 - sudo apt-get install openjdk-8-jdk
-- which java
-- sudo find / -iname java-8-openjdk-arm64
+- update-alternatives --config java
 - java -version
 - sudo apt-get install -y maven
 script: ./scripts/test.sh
