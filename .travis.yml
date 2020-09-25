@@ -30,19 +30,19 @@ cache:
   directories:
   - "$HOME/.m2"
 language: java
+jdk:
+- openjdk8
+install:
+  - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
+     sudo apt-get install openjdk-8-jdk maven;
+     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64;
+     export PATH=$JAVA_HOME/bin:$PATH;
+    fi
 
 # SonarCloud give a warning if using shallow clone (default), so we disable it
 git:
   depth: false
-  
-install:
-- sudo apt-get update
-- sudo apt-get install openjdk-8-jdk
-- export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64;
-- export PATH=$JAVA_HOME:$PATH;
-- java -version
-- sudo apt-get install -y maven
-- sudo apt-get install -y openssl libssl-dev
+
 script: ./scripts/test.sh
 after_success:
 - if [ "$TRAVIS_EVENT_TYPE" == "cron" ]; then bash -x scripts/deploy.sh ; fi
